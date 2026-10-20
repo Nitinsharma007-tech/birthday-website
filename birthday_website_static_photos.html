@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Happy Birthday 🎂</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;600;700&family=Caveat:wght@500;700&display=swap">
+
+<style>
+
+:root{--rose:#c2185b;--ink:#2b1233;--cream:#fdf3ee;--lav:#c9a8f0;--pink:#f6c1d3;--card:#fffaf6;--muted:#7a6680;
+
+--bg1:#fbe3df;--bg2:#fdf1e7;color-scheme:light}
+
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:light}}
+
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+
+html,body{height:100%}
+
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:#e9d9e4;display:flex;justify-content:center;overflow:hidden}
+
+#app{position:relative;width:100%;max-width:430px;height:100%;background:linear-gradient(160deg,var(--bg1),var(--bg2));overflow:hidden;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+
+#stage{position:absolute;inset:0 0 84px 0;overflow:hidden}
+
+.slide{position:absolute;inset:0;padding:22px 18px 8px;overflow-y:auto;animation:in .45s ease}
+
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+h1,h2{font-family:'Abril Fatface',Georgia,serif;font-weight:400;line-height:1.12}
+
+.hand{font-family:Caveat,'Comic Sans MS',cursive}
+
+.eyebrow{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);font-weight:700;text-align:center;margin-bottom:6px}
+
+.center{text-align:center}
+
+em{color:var(--rose);font-style:normal}
+
+.cta{display:flex;align-items:center;gap:8px;margin:14px auto 0;border:0;background:var(--rose);color:#fff;font:600 15px Inter,sans-serif;padding:13px 26px;border-radius:99px;box-shadow:0 8px 18px #c2185b55;cursor:pointer}
+
+.ghost{background:#fff;color:var(--ink);box-shadow:0 2px 8px #0002}
+
+/* nav */
+
+#nav{position:absolute;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));height:62px;background:#fffaf6ee;border-radius:30px;box-shadow:0 6px 24px #4a1d5a33;display:flex;align-items:center;gap:8px;padding:0 8px;z-index:5}
+
+#nav button{width:44px;height:44px;border-radius:50%;border:0;font-size:18px;cursor:pointer;background:#f1e6ea;color:var(--ink)}
+
+#nav #nx{background:var(--rose);color:#fff}
+
+#nav button:disabled{opacity:.4}
+
+#mid{flex:1;text-align:center;min-width:0}
+
+#ttl{font-size:12px;font-weight:700}
+
+#dots{display:flex;gap:4px;justify-content:center;margin-top:5px}
+
+#dots i{width:6px;height:6px;border-radius:9px;background:#e6bccb;cursor:pointer}
+
+#dots i.on{width:18px;background:var(--rose)}
+
+#cnt{font-size:11px;color:var(--muted);font-weight:600;position:absolute;right:62px;top:6px}
+
+/* home */
+
+.chip{display:inline-flex;gap:6px;background:#fff;border-radius:99px;padding:6px 12px;font-size:11px;font-weight:700;color:var(--rose);box-shadow:0 2px 8px #0001}
+
+.home h1{font-size:34px;margin:12px 0 4px}
+
+.sub{font:500 22px Caveat,cursive}.sub b{color:var(--rose);font-weight:700}
+
+.by{font-size:12px;color:var(--muted);margin-top:6px}
+
+.hero{position:relative;height:210px;margin:12px 0 0;display:flex;justify-content:center;align-items:center}
+
+.age{position:absolute;inset:0;display:flex;justify-content:center;align-items:flex-start;font:400 150px/1 'Abril Fatface',serif;letter-spacing:34px;color:#f4a6bd;text-shadow:0 6px 0 #e98aa8,0 14px 20px #c2185b33;padding-left:34px}
+
+.cake{font-size:110px;margin-top:70px;filter:drop-shadow(0 10px 14px #0003)}
+
+.cd{display:flex;gap:8px;justify-content:center;margin-top:6px}
+
+.cd div{background:#fff;border-radius:10px;padding:6px 0;width:56px;box-shadow:0 2px 8px #0001}
+
+.cd b{display:block;font:700 20px Inter;}.cd small{font-size:8px;letter-spacing:.1em;color:var(--muted)}
+
+.cdl{font-size:10px;letter-spacing:.16em;font-weight:700;color:var(--rose);text-align:center;margin-top:8px}
+
+/* letter */
+
+.env{position:relative;margin:70px 10px 0;height:230px;background:linear-gradient(#f4a7c0,#e8819f);border-radius:12px;box-shadow:0 14px 30px #c2185b44;cursor:pointer;display:flex;align-items:center;justify-content:center}
+
+.env:before{content:"";position:absolute;inset:0;clip-path:polygon(0 0,100% 0,50% 58%);background:#f9bdd0;border-radius:12px}
+
+.seal{position:relative;z-index:2;width:56px;height:56px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#e2315f,#8d0f3a);margin-top:34px;box-shadow:0 4px 10px #0004;display:grid;place-items:center;color:#ffd0dc;font-size:22px}
+
+.pull{position:absolute;bottom:12px;width:100%;text-align:center;font-size:10px;letter-spacing:.14em;color:#a3345a;font-weight:700}
+
+.sheet{position:absolute;inset:60px 0 0;background:var(--card);border-radius:22px 22px 0 0;box-shadow:0 -10px 30px #0003;padding:16px 18px;overflow-y:auto;z-index:3;animation:up .5s ease}
+
+@keyframes up{from{transform:translateY(100%)}}
+
+.sheet h2{font-size:21px}.sheet .x{position:absolute;right:14px;top:14px;border:0;background:#f1e6ea;width:32px;height:32px;border-radius:50%;cursor:pointer}
+
+.sal{font:700 22px Caveat;color:var(--rose);margin:14px 0 8px}
+
+.sheet p{font-size:14px;line-height:1.6;margin-bottom:12px}
+
+.sig{font:700 24px Caveat;color:var(--rose);text-align:right;margin:14px 0 30px}
+
+/* claw */
+
+.mach{margin:0 auto;max-width:330px}
+
+.marq{background:#b794ee;border-radius:60px 60px 8px 8px;padding:12px 0 8px;text-align:center;font:400 20px 'Abril Fatface';color:#fff;box-shadow:0 4px 0 #9a74d6}
+
+.glass{position:relative;height:250px;background:#ffffff66;border:6px solid #b794ee;border-top:0;overflow:hidden}
+
+.claw{position:absolute;top:0;width:44px;margin-left:-22px;text-align:center;font-size:34px;transition:left .25s,top .7s ease;line-height:1}
+
+.claw:before{content:"";display:block;width:2px;height:var(--len,6px);background:#9a74d6;margin:0 auto}
+
+.prize{position:absolute;bottom:14px;font-size:44px;transform:translateX(-50%);transition:bottom .7s}
+
+.prize.got{bottom:150px;opacity:.0}
+
+.ctrl{display:flex;align-items:center;gap:10px;background:#fffaf6cc;border-radius:30px;padding:10px 12px;margin-top:10px}
+
+.ctrl .jb{width:40px;height:40px;border-radius:50%;border:0;background:#e9d5ff;font-size:16px;cursor:pointer}
+
+.ctrl p{flex:1;font:500 17px/1.1 Caveat;text-align:center}
+
+.grab{width:62px;height:62px;border-radius:50%;border:0;background:var(--rose);color:#fff;font:700 11px Inter;letter-spacing:.1em;box-shadow:0 5px 0 #8d0f3a;cursor:pointer}
+
+.msg{position:absolute;left:6%;right:6%;top:10px;max-height:215px;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-y;background:#fff;border-radius:12px;padding:30px 14px 14px;font:500 19px/1.3 Caveat;text-align:left;box-shadow:0 6px 18px #0003;z-index:3;white-space:pre-line}
+
+.msg .mx{position:sticky;top:-24px;float:right;margin:-24px -6px 0 6px;border:0;background:#f1e6ea;width:26px;height:26px;border-radius:50%;cursor:pointer;font:700 12px Inter;z-index:2}
+
+/* story */
+
+.paper{background:var(--card);border-radius:10px;min-height:370px;padding:22px 20px;box-shadow:0 8px 24px #0002;text-align:center;margin-top:8px;background-image:radial-gradient(#e9d9d4 1px,transparent 1px);background-size:14px 14px}
+
+.paper .d{font-size:11px;color:var(--rose);font-weight:700;letter-spacing:.1em}
+
+.paper h3{font:400 22px 'Abril Fatface';margin:6px 0 10px}.paper p{font:500 19px/1.4 Caveat}
+
+.pg{display:flex;justify-content:center;gap:10px;margin-top:12px}
+
+.pg button{border:0;background:#fff;border-radius:99px;padding:8px 16px;font:600 12px Inter;cursor:pointer;box-shadow:0 2px 6px #0002}
+
+/* jar */
+
+.jar{font-size:130px;text-align:center;margin-top:14px;cursor:pointer;position:relative;filter:drop-shadow(0 10px 12px #0002)}
+
+.wish{position:absolute;left:50%;transform:translateX(-50%);width:80%;background:#fff;border-radius:12px;padding:10px 14px;font:500 20px/1.15 Caveat;text-align:center;box-shadow:0 6px 16px #0003;animation:rise 4.5s ease forwards;pointer-events:none}
+
+@keyframes rise{0%{opacity:0;top:90px}15%{opacity:1}85%{opacity:1}100%{opacity:0;top:-60px}}
+
+/* booth */
+
+.booth{background:#b794ee;border-radius:18px;padding:12px;box-shadow:0 10px 0 #8f6bd0;max-width:300px;margin:6px auto 0}
+
+.booth .ttl{background:#fff4e8;border:4px solid #c2185b;border-radius:10px;text-align:center;font:400 22px 'Abril Fatface';color:var(--rose);padding:6px}
+
+.scr{background:#4a1d3a;border-radius:10px;margin-top:10px;height:200px;display:grid;place-items:center;overflow:hidden}
+
+.scr img,.scr .ph{width:100%;height:100%;object-fit:cover}
+
+.ph{display:grid;place-items:center;font-size:60px;background:linear-gradient(135deg,#f9c6d6,#d9b8f5)}
+
+.strip{display:flex;gap:10px;overflow-x:auto;padding:14px 4px}
+
+.pol{flex:0 0 120px;background:#fff;padding:6px 6px 22px;box-shadow:0 4px 12px #0003;transform:rotate(var(--r,-3deg))}
+
+.pol .ph,.pol img{width:100%;height:110px;object-fit:cover;display:block;font-size:34px}
+
+.pol small{display:block;font:500 14px Caveat;text-align:center;margin-top:4px}
+
+.lens{width:116px;height:116px;border-radius:50%;background:radial-gradient(circle,#1e0f38 28%,#7f5bd0 31%,#c9a8f0 58%,#fff 61%);display:grid;place-items:center;color:#fff;font:700 34px Inter;text-shadow:0 2px 6px #000a;text-align:center;line-height:1.05}
+
+.lens.sm{font-size:20px}
+
+.fl{}
+
+.flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+
+.flash.go{animation:flsh .35s ease-out}
+
+@keyframes flsh{0%{opacity:.95}100%{opacity:0}}
+
+.scr{position:relative}
+
+.snap{display:flex;align-items:center;gap:8px;margin:12px auto 0;border:0;background:#ffd27a;color:#4a1d3a;font:700 14px Inter;padding:12px 22px;border-radius:99px;box-shadow:0 5px 0 #d9a93e;cursor:pointer}
+
+.snap:disabled{opacity:.6}
+
+.slot{height:10px;background:#4a1d3a;border-radius:6px;margin:12px 14px 0}
+
+.tw{max-width:300px;margin:0 auto;overflow:hidden;padding-bottom:20px}
+
+.tstrip {
+
+      width: 150px;
+
+      margin: 0 auto;
+
+      background: #fff;
+
+      padding: 8px 8px 14px;
+
+      box-shadow: 0 8px 20px #0003;
+
+      animation: none;
+
+}
+
+.tstrip .fr {
+
+      margin-bottom: 12px;
+
+      opacity: 0;
+
+      transform: translateY(-55px) scale(.96);
+
+      animation: slowPhotoPrint 2.5s cubic-bezier(.18,.7,.25,1) forwards;
+
+      animation-delay: calc(var(--i) * 3s);
+
+}
+
+@keyframes slowPhotoPrint {
+
+      0% {
+
+            opacity: 0;
+
+            transform: translateY(-55px) scale(.96);
+
+      }
+
+      35% {
+
+            opacity: .65;
+
+      }
+
+      100% {
+
+            opacity: 1;
+
+            transform: translateY(0) scale(1);
+
+      }
+
+}
+
+@keyframes eject{from{transform:translateY(-105%)}to{transform:none}}
+
+.tstrip .fr{margin-bottom:8px}.tstrip .fr .ph,.tstrip .fr img{width:100%;height:120px;object-fit:cover;display:block;font-size:40px}
+
+.tstrip small{display:block;font:500 14px Caveat;text-align:center;margin-top:2px}
+
+.lph{margin:12px auto 6px;width:78%;background:#fff;padding:8px 8px 10px;box-shadow:0 6px 18px #0003;transform:rotate(-2deg)}
+
+.lph .ph,.lph img{width:100%;height:190px;object-fit:cover;display:block;font-size:56px}
+
+.lph small{display:block;font:500 17px Caveat;text-align:center;margin-top:4px;color:var(--rose)}
+
+/* list cards */
+
+.item{display:flex;gap:12px;background:#fff;border-radius:14px;padding:12px;margin-top:10px;box-shadow:0 3px 10px #0001}
+
+.item .pin{font-size:24px}.item b{font-size:14px}.item p{font-size:12px;color:var(--muted);margin-top:2px}
+
+/* date */
+
+.cal{background:#fff;border-radius:18px;border-top:14px solid #f48fb1;text-align:center;padding:10px 0 14px;margin:8px 20px 0;box-shadow:0 10px 24px #0002}
+
+.cal .m{font:700 15px Inter;letter-spacing:.14em;color:var(--rose)}.cal .n{font:400 78px/1 'Abril Fatface'}.cal .y{font-size:12px;color:var(--muted)}
+
+.dcard{background:var(--card);border-radius:22px;padding:16px 18px;margin-top:-10px;position:relative;box-shadow:0 8px 24px #0002}
+
+.dcard h2{font-size:24px;margin:4px 0}.big{font:400 38px 'Abril Fatface';color:var(--rose)}
+
+/* candles */
+
+.cakebox{text-align:center;position:relative;margin-top:10px}.cakebox .c{font-size:150px;filter:drop-shadow(0 12px 14px #0003)}
+
+.cdls{display:flex;justify-content:center;gap:14px;height:60px;margin-bottom:-14px}
+
+.cdl2{width:8px;height:40px;background:linear-gradient(#ffe29a,#f4a6bd);border-radius:3px;margin-top:20px;position:relative}
+
+.fl{position:absolute;top:-24px;left:-3px;width:14px;height:22px;background:radial-gradient(#fff7c2,#ffb42e 60%,transparent 70%);border-radius:50% 50% 50% 50%/60% 60% 40% 40%;animation:fk .3s infinite alternate}
+
+.out .fl{display:none}.out:after{content:"";position:absolute;top:-30px;left:2px;width:4px;height:26px;background:linear-gradient(#8885,transparent);animation:sm 1.5s forwards}
+
+@keyframes fk{to{transform:scale(1.1,.92) rotate(3deg)}}@keyframes sm{to{opacity:0;transform:translateY(-14px)}}
+
+.pan{background:var(--card);border-radius:16px;padding:14px;margin-top:10px;box-shadow:0 6px 20px #0002}
+
+.row{display:flex;gap:8px;margin-top:8px}.row button{flex:1;border:0;border-radius:99px;padding:11px;font:600 13px Inter;cursor:pointer;background:#fff;box-shadow:0 1px 4px #0002}
+
+.row .pri{background:var(--rose);color:#fff}
+
+.note{font-size:11px;color:var(--muted);margin-top:8px}
+
+/* final */
+
+.fin .n19{font:400 110px/1 'Abril Fatface';letter-spacing:14px;color:#f4a6bd;text-shadow:0 5px 0 #e98aa8;text-align:center;margin-top:20px}
+
+.fin h1{font-size:30px;text-align:center;margin:6px 0}
+
+.icons{display:flex;gap:8px;justify-content:center;margin:14px 0}
+
+.icons span{width:34px;height:34px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:17px;box-shadow:0 2px 6px #0002;cursor:pointer}
+
+/* confetti */
+
+.cf{position:fixed;top:-12px;width:7px;height:12px;z-index:9;animation:fall linear forwards;pointer-events:none}
+
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+
+/* edit */
+
+#edbtn{display:none;position:absolute;top:calc(8px + env(safe-area-inset-top,0px));right:10px;z-index:8;border:0;background:#fffc;border-radius:99px;padding:6px 11px;font:600 11px Inter;cursor:pointer;box-shadow:0 2px 6px #0003}
+
+#ed{position:absolute;inset:0;background:#fffaf6;z-index:20;padding:14px;display:none;flex-direction:column;gap:8px}
+
+#ed.on{display:flex}
+
+#ed textarea{flex:1;font:12px/1.4 ui-monospace,Menlo,monospace;border:1px solid #ddc;border-radius:10px;padding:10px;resize:none;background:#fff;color:#222}
+
+#ed h3{font-size:15px}#ed p{font-size:11px;color:var(--muted)}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="app">
+
+   <button id="edbtn">✎ Edit site</button>
+
+   <div id="stage"></div>
+
+   <div id="nav"><button id="pv" aria-label="Back">‹</button><div id="mid"><div id="ttl"></div><div id="dots"></div></div><span id="cnt"></span><button id="nx" aria-label="Next">›</button></div>
+
+   <div id="ed">
+
+      <h3>Edit every detail</h3>
+
+      <p>Change any text, name, date, wish, place or photo below, then press Apply. Saved in this browser. Keep the quotes and commas intact.</p>
+
+      <textarea id="json" spellcheck="false"></textarea>
+
+      
+
+      <div class="row"><button id="rst">Reset</button><button id="cls">Cancel</button><button class="pri" id="app2">Apply</button></div>
+
+   </div>
+
+</div>
+
+<script>
+
+/* ================= EDIT EVERYTHING HERE (or use the ✎ Edit site button) ================= */
+
+const DEFAULTS = {
+
+   name: "Geet!, Wifey, Nakhro, Babu, Babieee, My Love, My Everything",
+
+   sender: "Your Angry Bird",
+
+   age: 19,
+
+   dateLabel: "OCTOBER 21",
+
+   birthdayISO: "2026-10-21T00:00:00",
+
+   greeting: "Happy birthday",
+
+   subPrefix: "for being so",
+
+   subWords: ["wonderful", "brave", "beautiful", "loved"],
+
+   pageTitles: ["The letter","What I love","Moments","Our date","The candles","The wish"],
+
+   letter: {
+
+      salutation: "My Dear Babie,",
+
+      body: [
+
+         "My Dear Love, My Bubu, My Everything,",
+
+         "First of all, happiest birthday to the most beautiful, precious, and special person in my life. 🥰💗",
+
+         "I love you sooo much, Bubu. More than these words can say. And if I had to choose my favourite person all over again, I’d still choose you, my love. Every single time. 💋. Bhagwan ji aapko hmesha khush rakhe mere saath rakhe aapki har manokaamna poori kare.... meri parvati sada meri rahe tahta khsuh rhe,swasth rahe."
+      ],
+
+      closing: "Forever yours,\nYour babieee, your Angry bird, your hubby, your bad boy, your boy who loves his bubu endlessly. 💗",
+
+      signoff: "With love, Your Angry Bird",
+
+      photo: { src: "uploads/pic/message.jpeg", caption: "Us ♥" }
+
+   },
+
+   love: [
+
+      { emoji: "🧁", text: "❤️🥹🫶🏻 Main aapse aapki hasi se pyaar karta hoon, aapki baaton se, aapke chhoti-chhoti baatein batane ke tareeke se, aapke jealous hone se, aapke gussa karne se, aur phir usi gusse mein bhi mujhse pyaar karne se. Aapke uss “babieee” bolne se, aapke mujhe khud se bhi zyada pyaar karne se, aapke har baar “pata nahi” kehne se, aur aapki un saari chhoti-chhoti harkaton se jo shayad aapke liye normal hongi, par mere liye duniya ki sabse pyaari cheezein hain. Main aapse sirf tab pyaar nahi karta jab aap khush hoti ho, jab aap hasti ho ya jab aap mujhse pyaari-pyaari baatein karti ho. Main aapse tab bhi utna hi pyaar karta hoon jab aap gussa hoti ho, jab aap overthink karti ho, jab aapko kuch samajh nahi aata, jab aap bachchon jaisi zidd karti ho, aur jab aap bina kisi wajah ke bas mujhe apne paas chahti ho. Kyunki mere liye aapki har feeling, aapka har mood, aapka har version pyaara hai. 🥹💗🫂❤️‍🩹" },
+
+      { emoji: "🍓", text: "💋🥺 Mujhe sabse zyada kya pasand hai? Aapka mera hona. Yeh nahi ki aap perfect ho, balki yeh ki aap aap ho. Aapki imperfections, aapki insecurities, aapki silly baatein, aapki cute si jealousy, aapka mujhe pareshan karna, woh saare moments jahan hum bina kuch special kiye bhi ek doosre ke saath khush rehte hain. Mujhe aapke saath sirf achhe moments nahi chahiye, mujhe aapke saath woh normal se normal din bhi chahiye jo sirf aapke hone se special ban jaate hain. Aap meri favourite person ho, meri favourite feeling ho, mera sukoon ho, meri khushi ho, meri sabse pyaari si aadat ho. 🥺💋🫶🏻" },
+
+      { emoji: "🧸", text: "🧿❤️‍🔥🫂 Aur agar mujhe dobara bhi pyaar ka matlab seekhna pade na, toh main phir se aapko hi chununga, Bubu. Har baar, har janam, har kahaani mein… kyunki mere liye pyaar koi shabd nahi hai, pyaar toh aap ho. ❤️🥹🫶🏻💗" }
+
+   ],
+
+   loveIntro: "Move the joystick, then press Grab.",
+   song: {
+    title: "Your Favourite Song",
+    artist: "Artist Name",
+    note: "Our song, our memories, our love. ❤️",
+    audio: "music/our-song.mp3"
+    },
+
+   photos: [],
+
+   date: { month: "March", day: 16, year: 2026, title: "A date to keep", place: "College", note: "~~~~~~The day you agreed~~~~" },
+
+   candlesTitle: "Blow out the candles",
+
+   candlesNote: "The microphone only listens for your breath, right here on your device. Nothing is recorded.",
+
+   finalLine: "With all my love,"
+
+};
+
+/* ======================================================================================== */
+
+let C = load();
+
+function load(){ try{ const s=localStorage.getItem('bday_cfg_v1'); if(s) return {...structuredClone(DEFAULTS),...JSON.parse(s)}; }catch(e){} return structuredClone(DEFAULTS); }
+
+const $=s=>document.querySelector(s);
+
+const esc=t=>String(t??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+const nl=t=>esc(t).replace(/\n/g,'<br>');
+
+const stage=$('#stage');
+
+let cur=0, timers=[], stream=null;
+
+const ICONS=['💌','🎁','📸','📅','🕯️'];
+
+const clr=()=>{timers.forEach(t=>{clearInterval(t);clearTimeout(t)});timers=[];if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}};
+
+const T=(f,ms)=>{const t=setTimeout(f,ms);timers.push(t);return t};
+
+const I=(f,ms)=>{const t=setInterval(f,ms);timers.push(t);return t};
+
+function confetti(n=40){const cs=['#f48fb1','#c2185b','#c9a8f0','#ffd27a','#8fd3b6'];for(let i=0;i<n;i++){const e=document.createElement('i');e.className='cf';e.style.cssText=`left:${Math.random()*100}vw;background:${cs[i%5]};animation-duration:${2.5+Math.random()*2.5}s;animation-delay:${Math.random()*.8}s`;document.body.appendChild(e);setTimeout(()=>e.remove(),6000)}}
+
+const SCREENS=[home,letter,love,moments,dateStep,candles,final]; /* 7 screens (song shows inside "Our date") */
+
+function go(i){
+
+   clr(); cur=Math.max(0,Math.min(SCREENS.length-1,i));
+
+   stage.innerHTML=''; const el=document.createElement('div'); el.className='slide'; stage.appendChild(el);
+
+   SCREENS[cur](el);
+
+      $('#ttl').textContent=cur===0?'Ready?':(C.pageTitles[cur-1]||'');
+
+   $('#cnt').textContent=(cur+1)+'/'+SCREENS.length;
+
+   $('#dots').innerHTML=SCREENS.map((_,k)=>`<i class="${k===cur?'on':''}" data-k="${k}"></i>`).join('');
+
+   $('#pv').disabled=cur===0; $('#nx').disabled=cur===SCREENS.length-1;
+
+}
+
+$('#pv').onclick=()=>go(cur-1); $('#nx').onclick=()=>go(cur+1);
+
+$('#dots').onclick=e=>{const k=e.target.dataset?.k; if(k!==undefined) go(+k)};
+
+/* 1 — HOME */
+
+function home(el){
+
+   el.className='slide home center';
+
+   el.innerHTML=`<span class="chip">📅 ${esc(C.dateLabel)}</span>
+
+   <h1>${esc(C.greeting)},<br><em>${esc(C.name)}</em>!</h1>
+
+   <p class="sub">${esc(C.subPrefix)} <b id="sw"></b></p>
+
+   <p class="by">${esc(C.sender)} threw a little party just for you.</p>
+
+   <div class="hero"><div class="age">${esc(C.age)}</div><div class="cake">🎂</div></div>
+
+   <div class="cdl">COUNTING DOWN</div><div class="cd" id="cd"></div>
+
+   <button class="cta" id="open">🎁 Open my gift</button>`;
+
+   let w=0; const sw=$('#sw'); const setW=()=>sw.textContent=C.subWords[w++%C.subWords.length]; setW(); I(setW,2000);
+
+   const tick=()=>{let d=Math.abs(new Date(C.birthdayISO)-new Date())/1000;const v=[['DAYS',Math.floor(d/86400)],['HOURS',Math.floor(d/3600)%24],['MIN',Math.floor(d/60)%60],['SEC',Math.floor(d)%60]];$('#cd').innerHTML=v.map(([l,n])=>`<div><b>${String(n).padStart(2,'0')}</b><small>${l}</small></div>`).join('')};
+
+   tick(); I(tick,1000); confetti(50); $('#open').onclick=()=>go(1);
+
+}
+
+/* 2 — LETTER */
+
+function letter(el){
+
+   el.innerHTML=`<div class="env" id="env"><div class="seal">♥</div><div class="pull">TAP TO OPEN</div></div>`;
+
+   $('#env').onclick=()=>{
+
+      const L=C.letter; const sh=document.createElement('div'); sh.className='sheet';
+
+      sh.innerHTML=`<div class="eyebrow" style="text-align:left">OPEN THE ENVELOPE</div><h2>A letter for you</h2><button class="x" aria-label="Close">✕</button>
+
+      <div class="lph">${ph({src:(L.photo && L.photo.src) || "uploads/pic/message.jpeg",caption:(L.photo && L.photo.caption) || "Us ♥"},0)}<small>${esc((L.photo && L.photo.caption) || "Us ♥")}</small></div><div class="sal">${esc(L.salutation)}</div>${L.body.map(p=>`<p>${esc(p)}</p>`).join('')}<p>${nl(L.closing)}</p><div class="sig">${esc(L.signoff)}</div>`;
+
+      el.appendChild(sh); sh.querySelector('.x').onclick=()=>sh.remove(); confetti(24);
+
+   };
+
+}
+
+/* 3 — CLAW MACHINE */
+
+function love(el){
+
+   const P=C.love, pos=P.map((_,i)=>20+i*30); let x=50, found=new Set(), busy=false;
+
+   el.innerHTML=`<div class="mach"><div class="marq">♥ Love prizes ♥</div><div class="glass" id="gl"><div class="claw" id="cl">🪝</div>${P.map((p,i)=>`<div class="prize" id="pz${i}" style="left:${pos[i]}%">${esc(p.emoji)}</div>`).join('')}</div>
+
+   <div class="ctrl"><button class="jb" id="l">◀</button><button class="jb" id="r">▶</button><p id="hint">${esc(C.loveIntro)}</p><button class="grab" id="g">GRAB</button></div></div>`;
+
+   const cl=$('#cl'); const put=()=>cl.style.left=x+'%'; put();
+
+   $('#l').onclick=()=>{x=Math.max(8,x-8);put()}; $('#r').onclick=()=>{x=Math.min(92,x+8);put()};
+
+   $('#g').onclick=()=>{ if(busy)return; busy=true; document.querySelectorAll('.msg').forEach(x=>x.remove()); cl.style.setProperty('--len','170px'); cl.style.top='0';
+
+      T(()=>{ let hit=-1; pos.forEach((p,i)=>{if(Math.abs(p-x)<=13&&!found.has(i))hit=i});
+
+         if(hit>=0){found.add(hit);$('#pz'+hit).classList.add('got');document.querySelectorAll('.msg').forEach(x=>x.remove());const m=document.createElement('div');m.className='msg';m.innerHTML='<button class="mx" aria-label="Close">✕</button>'+esc(P[hit].text);m.querySelector('.mx').onclick=()=>m.remove();$('#gl').appendChild(m);$('#hint').innerHTML=`<b style="font:700 12px Inter">${found.size} of ${P.length} found</b><br>${esc(P[hit].text.slice(0,40))}…`;confetti(18)}
+
+         else $('#hint').textContent='So close — try again!';
+
+         cl.style.setProperty('--len','6px'); busy=false; },750); };
+
+}
+
+/* 6 — PHOTO BOOTH */
+
+const ph=(p,i)=>p&&p.src?`<img src="${esc(p.src)}" alt="${esc(p.caption||'')}" onerror="this.closest('.fr') ? this.closest('.fr').remove() : this.style.display='none'">`:`<div class="ph">${['📷','💕','😊','🥰'][i%4]}</div>`;
+
+function moments(el){
+
+   const P=Array.from({length:10},(_,i)=>({src:`uploads/camera/photo${i+1}.jpg`,caption:""}));
+
+   el.innerHTML=`<div class="eyebrow">SAY CHEESE!</div><h2 class="center" style="font-size:26px">Our moments</h2>
+
+   <div class="booth"><div class="ttl">Photo booth</div><div class="scr"><div class="lens" id="lens">📷</div><div class="flash" id="fl"></div></div>
+
+   <button class="snap" id="snap">📸 Tap to take photos</button><div class="slot"></div></div><div class="tw" id="tw"></div>`;
+
+   const lens=$('#lens'), fl=$('#fl'), btn=$('#snap');
+
+   const flash=()=>{fl.classList.remove('go');void fl.offsetWidth;fl.classList.add('go')};
+
+   btn.onclick=()=>{ btn.disabled=true; $('#tw').innerHTML='';
+
+      const seq=['3','2','1','Smile! 😊'];
+
+      seq.forEach((t,i)=>T(()=>{ lens.textContent=t; lens.classList.toggle('sm',i===1); flash(); },i*900));
+
+      T(()=>{ lens.classList.remove('sm'); lens.textContent='📷';
+
+$('#tw').innerHTML = `<div class="tstrip">${
+
+      P.map((p, i) => `
+
+            <div class="fr" style="--i:${i}">
+
+                  ${ph(p, i)}
+
+                  <small>${esc(p.caption || '')}</small>
+
+            </div>
+
+      `).join('')
+
+}</div>`;
+
+      confetti(20);
+
+btn.disabled = false;
+
+btn.textContent = '📸 Take again';
+
+}, seq.length * 900 + 200);
+
+};
+
+}
+
+/* 8 — OUR DATE (+ our song) */
+
+function dateStep(el){
+
+   const D=C.date, mi=new Date(`${D.month} ${D.day}, ${D.year}`), days=Math.floor((Date.now()-mi)/864e5);
+
+   const mo=Math.floor(days/30.44), rd=Math.round(days-mo*30.44), so=C.song || {title:"Our song",artist:"",note:"A song that reminds me of us.",audio:""};
+
+   el.innerHTML=`<div class="cal"><div class="m">${esc(D.month.toUpperCase())}</div><div class="n">${esc(D.day)}</div><div class="y">${esc(D.year)}</div></div>
+
+   <div class="dcard"><div class="eyebrow" style="text-align:left">MARK THE CALENDAR</div><h2>${esc(D.title)}</h2><p style="font-weight:600;margin:4px 0">${esc(D.month)} ${esc(D.day)}, ${esc(D.year)}</p><p class="note">📍 ${esc(D.place)} — ${esc(D.note)}</p>
+
+   <div style="margin-top:10px"><span class="big">${days}</span> days since that day</div><p class="note">${mo} months, ${rd} days</p></div>
+
+   <div class="item"><div class="pin">💿</div><div><b>${esc(so.title)}${so.artist ? ` — ${esc(so.artist)}` : ""}</b><p>${esc(so.note)}</p>${so.audio?`<audio controls src="${esc(so.audio)}" style="width:100%;margin-top:6px"></audio>`:''}</div></div>`;
+
+}
+
+/* 9 — CANDLES */
+
+function candles(el){
+
+   el.innerHTML=`<div class="cakebox"><div class="cdls" id="cs">${[0,1,2,3,4].map(()=>`<div class="cdl2"><div class="fl"></div></div>`).join('')}</div><div class="c">🎂</div></div>
+
+   <div class="pan"><div class="eyebrow" style="text-align:left">MAKE A WISH</div><h2 style="font-size:24px">${esc(C.candlesTitle)}</h2><div class="row"><button class="pri" id="mic">🎤 Microphone</button><button id="hold">Hold</button></div><p class="note">${esc(C.candlesNote)}</p></div>`;
+
+   const cs=[...document.querySelectorAll('.cdl2')]; let left=cs.length, done=false;
+
+   const snuff=()=>{ const c=cs.find(c=>!c.classList.contains('out')); if(c){c.classList.add('out');left--} if(!left&&!done){done=true;confetti(60);T(()=>go(SCREENS.length-1),1400)} };
+
+   let h; const hd=$('#hold'); const st=e=>{e.preventDefault();h=I(snuff,450)}, en=()=>clearInterval(h);
+
+   hd.onpointerdown=st; hd.onpointerup=hd.onpointerleave=en;
+
+   $('#mic').onclick=async()=>{ try{ stream=await navigator.mediaDevices.getUserMedia({audio:true}); const ac=new AudioContext(), an=ac.createAnalyser(); ac.createMediaStreamSource(stream).connect(an); const b=new Uint8Array(an.fftSize); let cool=0;
+
+      I(()=>{an.getByteTimeDomainData(b);let s=0;for(const v of b)s+=(v-128)**2;const r=Math.sqrt(s/b.length); if(r>18&&Date.now()>cool){snuff();cool=Date.now()+350}},60); $('#mic').textContent='🎤 Listening…'; }catch(e){ $('#mic').textContent='Mic blocked — use Hold'; } };
+
+}
+
+/* 10 — FINAL */
+
+function final(el){
+
+   el.className='slide fin';
+
+   el.innerHTML=`<div class="n19">${esc(C.age)}</div><div class="eyebrow" style="margin-top:6px">MAKE A WISH</div><h1>${esc(C.greeting)},<br><em>${esc(C.name)}</em>!</h1><p class="hand center" style="font-size:22px">${esc(C.finalLine)}<br>${esc(C.sender)}</p>
+
+   <div class="icons">${ICONS.map((c,i)=>`<span data-k="${i+1}">${c}</span>`).join('')}</div><button class="cta ghost" id="again">↻ Watch again</button>`;
+
+   el.querySelector('.icons').onclick=e=>{const k=e.target.dataset?.k;if(k)go(+k)}; $('#again').onclick=()=>go(0); confetti(70);
+
+}
+
+/* ---------- EDITOR ---------- */
+
+const ed=$('#ed'), ta=$('#json');
+
+$('#edbtn').onclick=()=>{ta.value=JSON.stringify(C,null,2);ed.classList.add('on')};
+
+$('#cls').onclick=()=>ed.classList.remove('on');
+
+$('#app2').onclick=()=>{ try{ C={...structuredClone(DEFAULTS),...JSON.parse(ta.value)}; try{localStorage.setItem('bday_cfg_v1',JSON.stringify(C))}catch(e){alert('Saved for this session only (browser storage is full or blocked).')} ed.classList.remove('on'); go(cur); }catch(e){ alert('There is a typo in the text: '+e.message) } };
+
+$('#rst').onclick=()=>{ if(confirm('Reset everything to the original text?')){ try{localStorage.removeItem('bday_cfg_v1')}catch(e){} C=structuredClone(DEFAULTS); ta.value=JSON.stringify(C,null,2); go(cur);} };
+
+
+
+
+if(new URLSearchParams(location.search).has('edit'))$('#edbtn').style.display='block';
+
+go(0);
+
+</script>
+
+</body>
+
+</html>
